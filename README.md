@@ -1,11 +1,11 @@
 Flow:
 
-1. setup logging
-2. remove logs older than 30 days
-3. delete the files from the tmp folder
-4. get parameters from file if there is a file, otherwise get them manually inserted
-5. have them on a .env file
-6. in directory on path /adms_backups/backups/ we want get into the newest directory
+1. setup logging - done
+2. remove logs older than 30 days - done
+3. delete the files from the tmp folder - done
+4. get parameters from file if there is a file, otherwise get them manually inserted - done
+5. have them on a .env file - done
+6. in directory on path /adms_backups/backups/ we want to get into the newest directory
 	- Copy all files to /storage/amp/scripts/tmp 
 	- Verify hashes are the same in both folders
 	- Zip the .dmp files to .gz and delete the .dmp
