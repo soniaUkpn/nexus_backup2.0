@@ -58,7 +58,20 @@ if os.path.exists(".env") and os.path.getsize(".env") > 0:
 else:
     parameters = default_parameters
 
-print(parameters)
+
+# Load credentials from netrc-nexus file
+try:
+    netrc_path = "netrc-nexus"
+    auth_data = netrc.netrc(netrc_path)
+    machine = "cs-nexus.ukpn.local"
+    login, account, password = auth_data.authenticators(machine)
+    parameters["Credentials"] = {
+        "username": login,
+        "password": password
+    }
+except (FileNotFoundError, netrc.NetrcParseError, TypeError) as e:
+    logging.error(f"Failed to load credentials from {netrc_path}: {e}")
+
 
 # Construct repository path
 #environment = parameters["Environment"][0]
